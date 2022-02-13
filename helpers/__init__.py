@@ -1,5 +1,5 @@
-def get_input(day):
-    with open(f'inputs/{day}.txt', 'r') as f:
+def get_input(file):
+    with open(f'inputs/{file}.txt', 'r') as f:
         output = []
         for line in f.read().splitlines():
             if len(line) > 1 and line[0] == '#':
