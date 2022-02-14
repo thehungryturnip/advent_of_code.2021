@@ -27,9 +27,8 @@ class SchoolOfFish(list):
 data = helpers.get_input('2021_06')
 
 school = SchoolOfFish()
-for row in data:
-    for entry in row.split(','):
-        school.add_fish(int(entry))
+for d in data[0].split(','):
+    school.add_fish(int(d))
 
 for _ in range(PART_1_DAYS):
     school.age()
