@@ -2,6 +2,7 @@
 
 import helpers
 
+
 def filter_position(candidates, index, filter_by_more):
     delta = 0
     for c in candidates:
@@ -18,11 +19,13 @@ def filter_position(candidates, index, filter_by_more):
 
     return [c for c in candidates if c[index] == target]
 
+
 def filter(candidates, more):
     for i in range(len(candidates[0])):
         candidates = filter_position(candidates, i, more)
         if len(candidates) == 1:
             return candidates[0]
+
 
 report = helpers.get_input('2021_03')
 

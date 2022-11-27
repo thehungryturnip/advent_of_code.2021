@@ -7,6 +7,7 @@ from collections import namedtuple, defaultdict
 Coord = namedtuple('Coord', ['x', 'y'])
 Vent = namedtuple('Vent', ['start', 'end'])
 
+
 class VentsMap(defaultdict):
     def __init__(self, *args):
         super().__init__(int)
@@ -35,6 +36,7 @@ class VentsMap(defaultdict):
 
     def count_overlap(self):
         return sum(v > 1 for v in map_.values())
+
 
 data = helpers.get_input('2021_05')
 

@@ -2,6 +2,7 @@
 
 import helpers
 
+
 class Crabs(list):
     def add(self, position):
         self.append(position)
@@ -14,7 +15,7 @@ class Crabs(list):
     def get_geometric_min(self):
         self.sort()
         best = self._fuel_at(min(self))
-        for p in range(min(self) + 1 , max(self) + 1):
+        for p in range(min(self) + 1, max(self) + 1):
             fuel = self._fuel_at(p)
             if fuel < best:
                 best = fuel
@@ -26,6 +27,7 @@ class Crabs(list):
     @staticmethod
     def _fuel_between(x, y):
         return sum(i + 1 for i in range(abs(x - y)))
+
 
 data = helpers.get_input('2021_07')
 

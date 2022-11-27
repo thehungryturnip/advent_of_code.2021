@@ -3,7 +3,7 @@
 import helpers
 
 course = helpers.get_input('2021_02')
-course = [ l.split(' ') for l in course]
+course = [l.split(' ') for l in course]
 
 pos = 0
 depth = 0

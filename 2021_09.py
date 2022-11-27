@@ -4,10 +4,11 @@ from collections import deque
 from functools import reduce
 from helpers import get_input, Point, RectMap
 
+
 class DepthMap(RectMap):
 
     def __init__(self, data):
-        super().__init__(data);
+        super().__init__(data)
 
     def __repr__(self):
         return super().__repr__()
@@ -18,8 +19,7 @@ class DepthMap(RectMap):
 
     def multiply_basin_sizes(self):
         low_points = list(filter(lambda p: self._is_low_point(p), self))
-        basin_sizes = list(map(lambda p: self._basin_size(p), low_points))
-        basin_sizes.sort()
+        basin_sizes = sorted(map(lambda p: self._basin_size(p), low_points))
         biggest_3 = basin_sizes[-3:]
         return reduce(lambda x, y: x * y, biggest_3)
 
@@ -39,12 +39,11 @@ class DepthMap(RectMap):
             for n in neighbors:
                 if (self[n] == 9):
                     continue
-                if (not n in basin_points):
+                if (n not in basin_points):
                     to_check.append(n)
                     basin_points.add(n)
 
         return len(basin_points)
-
 
 
 data = get_input('2021_09')

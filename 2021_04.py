@@ -2,6 +2,7 @@
 
 import helpers
 
+
 class Board(list):
 
     def __init__(self, board):
@@ -10,7 +11,7 @@ class Board(list):
             self.append(row)
             for c, val in enumerate(row):
                 self._vals[val] = (r, c)
-    
+
     def mark(self, val):
         if val in self._vals:
             r, c = self._vals[val]
@@ -24,10 +25,10 @@ class Board(list):
             if all(self[r][c] == 'x' for r in range(len(self))):
                 return True
         return False
-    
+
     def sum_unmarked(self):
         return sum(int(v) for row in self for v in row if v != 'x')
-    
+
     def __str__(self):
         str_ = ""
         for row in self:
@@ -37,6 +38,7 @@ class Board(list):
 
     def __repr__(self):
         return self.__str__()
+
 
 class Game:
 
@@ -58,6 +60,7 @@ class Game:
                             return int(n) * b.sum_unmarked()
                         else:
                             del self.boards[i]
+
 
 data = helpers.get_input('2021_04')
 

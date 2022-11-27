@@ -5,6 +5,7 @@ import helpers
 PART_1_DAYS = 80
 PART_2_DAYS = 256
 
+
 class SchoolOfFish(list):
 
     def __init__(self):
@@ -23,6 +24,7 @@ class SchoolOfFish(list):
 
     def count_fish(self):
         return sum(self)
+
 
 data = helpers.get_input('2021_06')
 

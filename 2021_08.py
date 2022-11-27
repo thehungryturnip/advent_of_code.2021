@@ -4,6 +4,7 @@ import helpers
 import re
 from queue import Queue
 
+
 class Entry:
     LEN_1478 = set([2, 3, 4, 7])
 
@@ -11,7 +12,7 @@ class Entry:
         self.samples = [set(s) for s in samples]
         self.message = [set(m) for m in message]
         self.decoded = {}
-    
+
     def count_1478(self):
         return sum(len(m) in Entry.LEN_1478 for m in self.message)
 
@@ -25,7 +26,7 @@ class Entry:
                     num += i
 
         return num
-    
+
     def _analyze_samples(self):
         len_5 = []
         len_6 = []
@@ -71,6 +72,7 @@ class Entry:
                 del len_6[i]
                 self.decoded[0] = len_6[0]
 
+
 class Decoder(list):
     def add(self, samples, message):
         self.append(Entry(samples, message))
@@ -81,11 +83,12 @@ class Decoder(list):
     def sum(self):
         return sum(e.decode() for e in self)
 
+
 data = helpers.get_input('2021_08')
 
 decoder = Decoder()
 for d in data:
-    d = re.split(' \| | ', d)
+    d = re.split(' \\| | ', d)
     decoder.add(d[:10], d[-4:])
 
 print(f'Part 1: {decoder.count_1478()}')

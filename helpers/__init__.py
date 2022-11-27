@@ -1,5 +1,6 @@
 from collections import namedtuple
 
+
 def get_input(file, ex=False):
     if ex:
         file = f'{file}_ex'
@@ -13,7 +14,9 @@ def get_input(file, ex=False):
             output.append(line)
         return output
 
+
 Point = namedtuple("Point", "r c")
+
 
 class RectMap(dict):
 
@@ -42,11 +45,10 @@ class RectMap(dict):
         return list(filter(lambda p: not self.out_of_bounds(p), neighbors))
 
     def out_of_bounds(self, p):
-        if (p.r < 0 or p.c < 0):
+        if p.r < 0 or p.c < 0:
             return True
-        if (p.r >= self.height):
+        if p.r >= self.height:
             return True
-        if (p.c >= self.width):
+        if p.c >= self.width:
             return True
         return False
-
