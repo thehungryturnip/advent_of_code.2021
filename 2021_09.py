@@ -14,12 +14,12 @@ class DepthMap(RectMap):
         return super().__repr__()
 
     def sum_low_points(self):
-        low_points = list(filter(lambda p: self._is_low_point(p), self))
+        low_points = [p for p in self if self._is_low_point(p)]
         return sum([self[p] + 1 for p in low_points])
 
     def multiply_basin_sizes(self):
-        low_points = list(filter(lambda p: self._is_low_point(p), self))
-        basin_sizes = sorted(map(lambda p: self._basin_size(p), low_points))
+        low_points = [p for p in self if self._is_low_point(p)]
+        basin_sizes = sorted([self._basin_size(p) for p in low_points])
         biggest_3 = basin_sizes[-3:]
         return reduce(lambda x, y: x * y, biggest_3)
 
